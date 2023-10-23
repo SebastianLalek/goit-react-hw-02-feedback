@@ -7,18 +7,31 @@ export default class Feedback extends Component {
     bad: 0,
   };
 
+  counter = e => {
+    const key = e.target.id;
+    this.setState(state => ({
+      [key]: state[key] + 1,
+    }));
+  };
+
   render() {
     return (
       <div>
         <h2>Please leave feedback</h2>
-        <button>Good</button>
-        <button>Neutral</button>
-        <button>Bad</button>
+        <button id="good" onClick={this.counter}>
+          Good
+        </button>
+        <button id="neutral" onClick={this.counter}>
+          Neutral
+        </button>
+        <button id="bad" onClick={this.counter}>
+          Bad
+        </button>
         <h2>Statistics</h2>
         <ul>
-          <li>Good:</li>
-          <li>Neutral:</li>
-          <li>Bad:</li>
+          <li>Good:{this.state.good}</li>
+          <li>Neutral:{this.state.neutral}</li>
+          <li>Bad:{this.state.bad}</li>
         </ul>
       </div>
     );
