@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import css from './Feedback.module.css';
 
 export default class Feedback extends Component {
   state = {
@@ -18,13 +19,13 @@ export default class Feedback extends Component {
     return (
       <div>
         <h2>Please leave feedback</h2>
-        <button id="good" onClick={this.counter}>
+        <button className={css.button} id="good" onClick={this.counter}>
           Good
         </button>
-        <button id="neutral" onClick={this.counter}>
+        <button className={css.button} id="neutral" onClick={this.counter}>
           Neutral
         </button>
-        <button id="bad" onClick={this.counter}>
+        <button className={css.button} id="bad" onClick={this.counter}>
           Bad
         </button>
         <h2>Statistics</h2>
