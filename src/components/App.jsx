@@ -1,4 +1,4 @@
-import Feedback from './feedback/Feedback';
+import Section from "./section/Section";
 
 const initialState = {
   good: 0,
@@ -7,6 +7,12 @@ const initialState = {
   total: 0,
   percentage: 0,
 };
+
+class Feedback {
+state = {
+  ...initialState
+}
+}
 
 export const App = () => {
   return (
@@ -20,7 +26,8 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Feedback />
+      <Section title='Please leave feedback'></Section>
+      <Section title='Statistics'></Section>
     </div>
   );
 };
