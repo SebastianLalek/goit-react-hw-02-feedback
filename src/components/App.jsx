@@ -12,6 +12,15 @@ class Feedback {
 state = {
   ...initialState
 }
+
+render() {
+  return (
+    <div>
+    <Section title='Please leave feedback'></Section>
+    <Section title='Statistics'></Section>
+    </div>
+  )
+}
 }
 
 export const App = () => {
@@ -26,8 +35,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Section title='Please leave feedback'></Section>
-      <Section title='Statistics'></Section>
+      <Feedback />
     </div>
   );
 };
