@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Section from "./section/Section";
 import Statistics from "./statistics/Statistics";
 import FeedbackOptions from './feedbackoptions/FeddbackOptions';
+import Notification from './notification/Notification';
 
 const initialState = {
   good: 0,
@@ -52,8 +53,8 @@ render() {
       <FeedbackOptions options={["good", "neutral", "bad"] }  onLeaveFeedback={this.handleClick} />
     </Section>
     <Section title='Statistics'>
-    <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positive={this.state.positive}  />
-
+    {this.state.total === 0 ? <Notification title="There is no feedback" /> : <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positive={this.state.positive}  />
+}
     </Section>
     </div>
   )
