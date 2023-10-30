@@ -1,6 +1,8 @@
+import css from './Statistics.module.css';
+
 export default function Statistics({ good, neutral, bad, total, positive }) {
   return (
-    <ul>
+    <ul className={css.list}>
       <li>Good:{good}</li>
       <li>Neutral:{neutral}</li>
       <li>Bad:{bad}</li>
