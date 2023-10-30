@@ -1,14 +1,17 @@
+import React, { Component } from 'react';
+
 import Section from "./section/Section";
+import Statistics from "./statistics/Statistics";
 
 const initialState = {
   good: 0,
   neutral: 0,
   bad: 0,
   total: 0,
-  percentage: 0,
+  positive: 0,
 };
 
-class Feedback {
+class Feedback extends Component {
 state = {
   ...initialState
 }
@@ -16,8 +19,12 @@ state = {
 render() {
   return (
     <div>
-    <Section title='Please leave feedback'></Section>
-    <Section title='Statistics'></Section>
+    <Section title='Please leave feedback'>
+    </Section>
+    <Section title='Statistics'>
+    <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positive={this.state.positive}  />
+
+    </Section>
     </div>
   )
 }
