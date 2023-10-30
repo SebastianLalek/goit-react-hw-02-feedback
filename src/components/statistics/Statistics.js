@@ -14,7 +14,7 @@ export default function Statistics({ good, neutral, bad, total, positive }) {
   );
 }
 
-Statistics.PropTypes = {
+Statistics.propTypes = {
   good: PropTypes.number,
   neutral: PropTypes.number,
   bad: PropTypes.number,
