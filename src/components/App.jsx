@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Section from "./section/Section";
 import Statistics from "./statistics/Statistics";
-import FeedbackOptions from './feedbackoptions/FeddbackOptions';
+import FeedbackOptions from './feedbackoptions/FeedbackOptions';
 import Notification from './notification/Notification';
 
 const initialState = {
