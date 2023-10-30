@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Section from "./section/Section";
 import Statistics from "./statistics/Statistics";
+import FeedbackOptions from './feedbackoptions/FeddbackOptions';
 
 const initialState = {
   good: 0,
@@ -16,10 +17,39 @@ state = {
   ...initialState
 }
 
+counter = e => {
+  const key = e.target.id;
+  this.setState(state => ({
+    [key]: state[key] + 1,
+  }));
+};
+
+countTotalFeedback = () => {
+  let sum;
+  this.setState(state => {
+    sum = state.good + state.neutral + state.bad;
+    return { total: sum };
+  });
+};
+
+countPositiveFeedbackPercentage = () => {
+  this.setState(state => {
+    let percentage = Math.round((state.good / state.total) * 100);
+    return { positive: `${percentage}%` };
+  });
+};
+
+handleClick = e => {
+  this.counter(e);
+  this.countTotalFeedback();
+  this.countPositiveFeedbackPercentage();
+};
+
 render() {
   return (
     <div>
     <Section title='Please leave feedback'>
+      <FeedbackOptions options={["good", "neutral", "bad"] }  onLeaveFeedback={this.handleClick} />
     </Section>
     <Section title='Statistics'>
     <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positive={this.state.positive}  />
