@@ -1,8 +1,15 @@
-export default function Section(title, children) {
+import PropTypes from 'prop-types';
+
+export default function Section({ title, children }) {
   return (
-    <div>
-      <h1>{title}</h1>
+    <section>
+      <h2>{title}</h2>
       {children}
-    </div>
+    </section>
   );
 }
+
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.object,
+};
